@@ -60,7 +60,7 @@ class ResourcePacksPacketHandler extends PacketHandler{
 	 * Larger values allow downloading more chunks at the same time, increasing download speed, but the client may choke
 	 * and cause the download speed to drop (due to ACKs taking too long to arrive).
 	 */
-	private const MAX_CONCURRENT_CHUNK_REQUESTS = 1;
+	private const MAX_CONCURRENT_CHUNK_REQUESTS = 4;
 
 	/**
 	 * All data/resource_packs/chemistry* packs need to be listed here to get chemistry blocks to render
