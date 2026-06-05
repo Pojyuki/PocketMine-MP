@@ -1,4 +1,4 @@
-# Main configuration file for PocketMine-MP
+﻿# Main configuration file for PocketMine-MP
 # These settings are the ones that cannot be included in server.properties
 # Some of these settings are safe, others can break your server if modified incorrectly
 # New settings/defaults won't appear automatically in this file when upgrading.
@@ -52,7 +52,7 @@ memory:
   garbage-collection:
     #Period in ticks to fire the garbage collector manually (default 30 minutes), set to 0 to disable
     #This only affects the main thread. Other threads should fire their own collections
-    period: 36000
+    period: 7200
 
   #Settings controlling memory dump handling.
   memory-dump:
@@ -66,9 +66,9 @@ memory:
 network:
   #Threshold for batching packets, in bytes. Only these packets will be compressed
   #Set to 0 to compress everything, -1 to disable.
-  batch-threshold: 256
+  batch-threshold: -1
   #Compression level used when sending batched packets. Higher = more CPU, less bandwidth usage
-  compression-level: 6
+  compression-level: 1
   #Use AsyncTasks for compression during the main game session. Increases latency, but may reduce main thread load
   async-compression: false
   #Threshold for async compression, in bytes. Only packets larger than this will be compressed asynchronously
@@ -81,7 +81,7 @@ network:
   max-mtu-size: 1492
   #Enable encryption of Minecraft network traffic. This has an impact on performance, but prevents hackers from stealing sessions and pretending to be other players.
   #DO NOT DISABLE THIS unless you understand the risks involved.
-  enable-encryption: true
+  enable-encryption: false
 
 debug:
   #If > 1, it will show debug messages in the console
@@ -104,7 +104,7 @@ level-settings:
 chunk-sending:
   #To change server normal render distance, change view-distance in server.properties.
   #Amount of chunks sent to players per tick
-  per-tick: 4
+  per-tick: 16
   #Radius of chunks that need to be sent before spawning the player
   spawn-radius: 4
 
@@ -113,7 +113,7 @@ chunk-ticking:
   tick-radius: 3
   #Number of blocks inside ticking areas' subchunks that get ticked every tick. Higher values will accelerate events
   #like tree and plant growth, but at a higher performance cost.
-  blocks-per-subchunk-per-tick: 3
+  blocks-per-subchunk-per-tick: 1
   #IDs of blocks not to perform random ticking on.
   disable-block-ticking:
     #- grass
