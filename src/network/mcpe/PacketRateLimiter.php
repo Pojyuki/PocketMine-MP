@@ -42,7 +42,7 @@ final class PacketRateLimiter{
 		private string $name,
 		private int $averagePerTick,
 		int $maxBufferTicks,
-		private int $updateFrequencyNs = 50_000_000,
+		private int $updateFrequencyNs = 25_000_000,
 	){
 		$this->maxBudget = $this->averagePerTick * $maxBufferTicks;
 		$this->budget = $this->maxBudget;

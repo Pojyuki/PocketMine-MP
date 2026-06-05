@@ -145,13 +145,13 @@ use function ucfirst;
 use const JSON_THROW_ON_ERROR;
 
 class NetworkSession{
-	private const INCOMING_PACKET_BATCH_PER_TICK = 4; //usually max 1 per tick, but transactions arrive separately
-	private const INCOMING_PACKET_BATCH_BUFFER_TICKS = 100; //enough to account for a 5-second lag spike
+	private const INCOMING_PACKET_BATCH_PER_TICK = 32; //usually max 1 per tick, but transactions arrive separately
+	private const INCOMING_PACKET_BATCH_BUFFER_TICKS = 200; //enough to account for a 5-second lag spike
 
-	private const INCOMING_GAME_PACKETS_PER_TICK = 5;
-	private const INCOMING_GAME_PACKETS_BUFFER_TICKS = 100;
+	private const INCOMING_GAME_PACKETS_PER_TICK = 32;
+	private const INCOMING_GAME_PACKETS_BUFFER_TICKS = 200;
 
-	private const INCOMING_PACKET_BATCH_HARD_LIMIT = 300;
+	private const INCOMING_PACKET_BATCH_HARD_LIMIT = 600;
 
 	private PacketRateLimiter $packetBatchLimiter;
 	private PacketRateLimiter $gamePacketLimiter;
